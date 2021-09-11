@@ -1,0 +1,70 @@
+
+<!doctype html>
+<html lang="eng">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HUN City</title>
+        <!-- Bootstrap CSS --> 
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    </head>
+    <body>
+         
+        <div class="container" style="padding:35px 35px 35px 35px ">
+        <h1>{{ city_name }}</h1>
+        <h2>ingatlan.com</h2>
+        
+        <table class="table table-striped table-bordered table-sm">
+        <thead>
+        <tr>
+        <th scope="col">Price</th>
+        <th scope="col">Internet URL</th>
+        </tr>
+        </thead>
+
+
+        {% for ingatlan in ingatlanCom: %}
+        <tr><td>{{ ingatlan[0] }}</td><td><a href="{{ ingatlan[1] }}" target="_blank">{{  ingatlan[1]  }}</a> </td></tr> 
+        {% endfor %}
+        </table>
+        
+        <h2>ingatlantajolo.hu</h2>
+        
+        <table class="table table-striped table-bordered table-sm">
+        <thead>
+        <tr>
+        <th scope="col">Price</th>
+        <th scope="col">Internet URL</th>
+        </tr>
+        </thead>
+ 
+        {% for ingatlan in ingatlantajolo: %}
+        <tr><td>{{ ingatlan[0] }}</td><td><a href="{{ ingatlan[1] }}" target="_blank">{{  ingatlan[1]  }}</a> </td></tr> 
+        {% endfor %}
+        </table>  
+               
+
+
+
+        <h2>ingatlannet.hu</h2>
+        
+        <table class="table table-striped table-bordered table-sm">
+        <thead>
+        <tr>
+        <th scope="col">Price</th>
+        <th scope="col">Internet URL</th>
+        </tr>
+        </thead>
+ 
+
+        {% for ingatlan in ingatlannet: %}
+        <tr><td>{{ ingatlan[0] }}</td><td><a href="{{ ingatlan[1] }}" target="_blank">{{  ingatlan[1]  }}</a> </td></tr> 
+        {% endfor %}
+        </table>  
+        
+        
+        </div>
+    </body>
+</html>   
+

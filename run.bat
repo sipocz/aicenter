@@ -1,0 +1,1 @@
+C:\Users\sipocz\AppData\Local\Programs\Python\Python38\Scripts\

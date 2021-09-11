@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+    <head>
+        <!-- Bootstrap CSS --> 
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="static/background.css">
+        
+    </head>
+    <body>
+       
+        <div class="container" style="padding:35px 35px 35px 35px ">
+        <center>
+        
+        <img src="static/bitcoin.png" width="50" height="50">
+        
+        
+        
+        <h1>{{ query_in }}</h1>
+        
+        <h2>Crypto</h2>
+        </center>
+        
+        <table class="table table-striped table-bordered table-sm">
+        <thead>
+        <tr>
+        <th scope="col" >Image</th>
+        
+        <th scope="col">Ticker</th>
+        <th scope="col">Price</th>
+        <th scope="col">Coin</th>
+        
+        <th scope="col">Balance</th>
+        <th scope="col">USD</th>
+        
+        
+        
+        </tr>
+        </thead>
+
+
+        {% for lines in crypto_in: %}
+        <tr>
+        <td >
+        <img class="coin_image" src="{{ lines[0] }}" width="30" height="30">
+        </td>
+        <td>
+        {{ lines[1] }}
+        </td>
+        <td class="text-right">{{ lines[2] }}</td>
+        <td class="text-right">{{ lines[3] }}</td>
+        <td class="text-right">{{ lines[4] }}</td>
+        <td class="text-right">{{ lines[5] }}</td>
+        
+        
+        </tr> 
+        {% endfor %}
+        </table>
+        <br>
+        <br>
+        <!-- replace x.x.x with actual version -->
+<script src="https://unpkg.com/@codersrank/summary@0.9.11/codersrank-summary.min.js"></script>
+        <codersrank-summary username="sipocz"></codersrank-summary>
+        </div>
+        </body>
+</html>   
