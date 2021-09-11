@@ -405,7 +405,9 @@ def getcrypto(ticker=""):
 
 @app.route('/')
 def hello_world():
-   return "usage: https://pythonalarm.herokuapp.com/city/cityname <br>https://pythonalarm.herokuapp.com/arxiv/query+string  "
+    outstr=render_template("html_template_root.html")
+                                 
+    return outstr
 
 if __name__ == '__main__':
    porto = int(os.environ.get("PORT", 5000))
