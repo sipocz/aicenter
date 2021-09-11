@@ -422,6 +422,13 @@ def arxiv():
 
     return outstr
 
+@app.route('/BW_Colorizer', methods=['GET'])
+def bwcolorizer():
+    outstr="<h1>Colorizer</h1>"
+    return outstr
+
+
+
 
 
 if __name__ == '__main__':
