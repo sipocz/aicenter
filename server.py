@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import render_template_string
-from flask import render_template
+from flask import render_template,request
+
 
 import os
 app = Flask(__name__)
@@ -408,6 +409,20 @@ def hello_world():
     outstr=render_template("html_template_root.html")
                                  
     return outstr
+
+@app.route('/arxiv', methods=['POST'])
+def arxiv():
+    text = request.form['Field1']
+    
+    processed_text = text.upper()
+    outstr=render_template("html_template_arxiv.html",
+                                 query_in=processed_text,
+                                 arxiv_in=arxiv_pages(processed_text.replace(" ","+"))
+                                 )
+
+    return outstr
+
+
 
 if __name__ == '__main__':
    porto = int(os.environ.get("PORT", 5000))
