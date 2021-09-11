@@ -1,6 +1,6 @@
 body, html {
     /*height: 100%;*/
-    background-image: url("static/Black-Wallpaper-HD.jpg");
+    background-image: url("Black-Wallpaper-HD.jpg");
     background-repeat: repeat-y;
   }
 
@@ -8,9 +8,9 @@ body, html {
 
   tr:nth-child(even) {
     
-    background-color: #993333;
-    color:#ffffff;
-    opacity: 0.66 
+    background-color: #050a578e;
+    color:#dddddd;
+    opacity: 0.98 
 
 
   }
@@ -18,9 +18,9 @@ body, html {
  
   tr:nth-child(odd) {
     
-    background-color: #339933;
+    background-color: #111111;
     color:#ffffff;
-    opacity: 0.8; 
+    opacity: 0.66; 
 
 
   }
@@ -28,25 +28,24 @@ body, html {
   th {
     background-color: #444444;
     color: #cccccc;
-    opacity: 0.8;
+    opacity: 1;
     text-align: center;
 
 
   }
 
-  h2 {
+
+  h2, h1 {
     color: #ffffff
-    
-
-
+   
   }
+  
   .coin_image {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 30px;
-   
-    
+      
   }
 
   .arxiv-search-form {
