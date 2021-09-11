@@ -364,15 +364,15 @@ def getallcoin():
 
 #render_template_string(html_template,ingatlan_com=ingatlan_com_table)
 
-@app.route('/city/<city>')
+@app.route('/AI')
 
-def getcity(city="bajna"):
+def getcity(city="bb"):
    outstr=render_template("html_template_city.html",
                                  city_name=city.capitalize(),
                                  ingatlanCom=ingatlan_com_querycity(city),
                                  ingatlantajolo=ingatlantajolo_querycity(city),
                                  ingatlannet=ingatlannet_querycity(city))
-   print(outstr)
+   outstr="Hello1"
    return outstr
 
 @app.route('/arxiv/<query>')
@@ -400,9 +400,7 @@ def getcrypto(ticker=""):
 
 
 
-key="71191d9fd891eb083d06b48d064f81d1"
-secret="25b896c1a197071156c3804b43c2f84c"
-headers = {'X-ApiKeys' : 'Key=' + key + '; Secret=' + secret}
+
 
 
 @app.route('/')
