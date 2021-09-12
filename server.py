@@ -1,6 +1,8 @@
 from flask import Flask
 from flask import render_template_string
 from flask import render_template,request
+from werkzeug.utils import secure_filename
+
 
 
 import os
@@ -10,7 +12,7 @@ import requests
 from bs4 import  BeautifulSoup
 app.logger.error('testing error log')
 app.logger.info('testing info log')
-
+app.config['UPLOAD_FOLDER']="./upload"
 
 def ansicode(sti):
     outstr=""
@@ -424,11 +426,26 @@ def arxiv():
 
 @app.route('/BW_Colorizer', methods=['GET'])
 def bwcolorizer():
+    
     outstr=render_template("html_template_BWColorizer.html",
                                  
                                  )
     return outstr
 
+@app.route('/uploader', methods = ['GET', 'POST'])
+def upload_file():
+   if request.method == 'POST':
+      f = request.files['file']
+      fname="./upload"+"/"+f.filename
+      fname2="./static/img/"+f.filename  
+
+      f.save(fname2)
+      outstr=render_template("html_template_BWColorizer_work.html",
+                                 path2=fname2,
+                                 )
+
+      
+      return outstr
 
 
 
