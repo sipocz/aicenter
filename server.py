@@ -424,7 +424,9 @@ def arxiv():
 
 @app.route('/BW_Colorizer', methods=['GET'])
 def bwcolorizer():
-    outstr="<h1>Colorizer</h1>"
+    outstr=render_template("html_template_BWColorizer.html",
+                                 
+                                 )
     return outstr
 
 
