@@ -447,6 +447,17 @@ def upload_file():
       
       return outstr
 
+@app.route('/login', methods = ['GET', 'POST'])
+def login():
+      outstr=render_template("html_google_login.html",
+                                 
+                                 )
+
+      
+      return outstr
+
+
+
 
 
 
