@@ -392,6 +392,7 @@ def getarxiv(query="python"):
 @app.route('/crypto')
 
 def getcrypto(ticker=""):
+    
    outstr=render_template("html_template_crypto.html",
                                  query_in=ticker,
                                  crypto_in=getallcoin()
@@ -446,6 +447,27 @@ def upload_file():
 
       
       return outstr
+
+@app.route('/cryptoprice')
+def crypto_price():
+    coins=["ETH","LTC","BTC"]
+    outstr=""
+    for coin in coins:
+        urlstr=f"https://api.coinbase.com/v2/prices/{coin}-USD/spot"
+        
+        api=requests.get(urlstr)
+        fback=api.json()
+        price=fback["data"]["amount"]
+        print (api.text)
+        outstr+=f"--{coin}:{price}--"
+    
+    
+      
+    return outstr
+
+
+
+
 
 @app.route('/login', methods = ['GET', 'POST'])
 def login():
