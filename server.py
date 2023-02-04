@@ -391,6 +391,7 @@ def getarxiv(query="python"):
 
 @app.route('/crypto')
 
+
 def getcrypto(ticker=""):
     
    outstr=render_template("html_template_crypto.html",
