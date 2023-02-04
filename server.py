@@ -367,15 +367,15 @@ def getallcoin():
 
 #render_template_string(html_template,ingatlan_com=ingatlan_com_table)
 
-@app.route('/AI')
+@app.route('/Ingatlan/<city>')
 
-def getcity(city="bb"):
+def getcity(city="sopron"):
    outstr=render_template("html_template_city.html",
                                  city_name=city.capitalize(),
                                  ingatlanCom=ingatlan_com_querycity(city),
-                                 ingatlantajolo=ingatlantajolo_querycity(city),
+                                 #ingatlantajolo=ingatlantajolo_querycity(city),
                                  ingatlannet=ingatlannet_querycity(city))
-   outstr="Hello1"
+   
    return outstr
 
 @app.route('/arxiv/<query>')
