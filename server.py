@@ -123,9 +123,11 @@ def ingatlan_com_querycity_page(city,page):
     
    
     city=ansicode(city)
-    url="https://ingatlan.com/lista/elado+haz+"+city+"+ar-szerint-csokkeno?page="+str(page)
+    city=city.lower()
+    url="https://ingatlan.com/lista/elado+haz+"+city+"+ar-szerint-csokkeno"
     #print(url)
     res=requests.get(url,headers=header)
+    print(res)
     soup=BeautifulSoup(res.text,"html.parser")
     link=soup.select(".moreDetailsBox > a[href] ")
     urllist=soup.find_all("a", class_="listing__link")
@@ -156,8 +158,8 @@ def ingatlan_com_querycity(city):
     maxpage=ingatlan_com_pages(ansicity)
     print(maxpage)
     o=[]
-    for i in range(maxpage):
-        o+=ingatlan_com_querycity_page(ansicity,i+1)
+    
+    o+=ingatlan_com_querycity_page("sopron",1)
     return(o)
 
 def ingatlannet_pages(city):
@@ -305,7 +307,7 @@ def getBalance(currency):
 def getBalances():
     
     basestr="https://tradeogre.com/api/v1/"
-    apicmd="account/balances"
+    apicmd="ticker/balances"
     url=basestr+f"{apicmd}"
     print(url)
     api=requests.get(url,auth=(key,secret),)
@@ -316,7 +318,7 @@ def getTicker(currency):
     apicmd=f"ticker/{currency}"
     url=basestr+f"{apicmd}"
     #print(url)
-    api=requests.get(url,auth=(key,secret),)
+    api=requests.get(url)
     return(api)
 
 
@@ -356,7 +358,25 @@ def getallcoin():
     return(arr)
 
 
-
+def getcoinlist(clist):
+    arr=[]
+    for coin in clist:
+        ticker=getTicker(coin)
+        ticker=ticker.json()
+        print(ticker)
+        imgurl="https://tradeogre.com/img/coins/"+coin.split("-")[0].upper()+".png"
+        coinname=coin.upper()
+        startprice=float(ticker["initialprice"])
+        currentprice=float(ticker["price"])
+        delta_price=currentprice-startprice
+        delta_percent=delta_price/startprice*100
+        change_coin=coin.split("-")[1].upper()
+        if change_coin=="USDT":
+            arr.append([imgurl,coinname,f"{startprice:16.2f} {change_coin}",f"{currentprice:16.2f} {change_coin}",f"{delta_price:10.2f} {change_coin}",f"{delta_percent:6.2f} %" ,1])
+        elif change_coin=="BTC":
+            arr.append([imgurl,coinname,f"{startprice:16.8f} {change_coin}",f"{currentprice:16.8f} {change_coin}",f"{delta_price:10.8f} {change_coin}",f"{delta_percent:6.2f} %" ,1])
+    
+    return(arr)
 
 
 
@@ -372,7 +392,7 @@ def getallcoin():
 def getcity(city="sopron"):
    outstr=render_template("html_template_city.html",
                                  city_name=city.capitalize(),
-                                 ingatlanCom=ingatlan_com_querycity(city),
+                                 #ingatlanCom=ingatlan_com_querycity(city),
                                  #ingatlantajolo=ingatlantajolo_querycity(city),
                                  ingatlannet=ingatlannet_querycity(city))
    
@@ -393,10 +413,11 @@ def getarxiv(query="python"):
 
 
 def getcrypto(ticker=""):
-    
+   tickers=["btc-usdt","eth-usdt","dnx-usdt","erg-usdt","xmr-usdt","rvn-btc"] 
+
    outstr=render_template("html_template_crypto.html",
-                                 query_in=ticker,
-                                 crypto_in=getallcoin()
+                                 query_in=tickers,
+                                 crypto_in=getcoinlist(tickers)
                                  )
                                  
    #print(outstr)
@@ -472,9 +493,7 @@ def crypto_price():
 
 @app.route('/login', methods = ['GET', 'POST'])
 def login():
-      outstr=render_template("html_google_login.html",
-                                 
-                                 )
+      outstr=render_template("html_google_login.html",)
 
       
       return outstr

@@ -13,38 +13,7 @@
          
         <div class="container" style="padding:35px 35px 35px 35px ">
         <h1>{{ city_name }}</h1>
-        <h2>ingatlan.com</h2>
-        
-        <table class="table table-striped table-bordered table-sm">
-        <thead>
-        <tr>
-        <th scope="col">Price</th>
-        <th scope="col">Internet URL</th>
-        </tr>
-        </thead>
-
-
-        {% for ingatlan in ingatlanCom: %}
-        <tr><td>{{ ingatlan[0] }}</td><td><a href="{{ ingatlan[1] }}" target="_blank">{{  ingatlan[1]  }}</a> </td></tr> 
-        {% endfor %}
-        </table>
-        
-        <h2>ingatlantajolo.hu</h2>
-        
-        <table class="table table-striped table-bordered table-sm">
-        <thead>
-        <tr>
-        <th scope="col">Price</th>
-        <th scope="col">Internet URL</th>
-        </tr>
-        </thead>
- 
-        {% for ingatlan in ingatlantajolo: %}
-        <tr><td>{{ ingatlan[0] }}</td><td><a href="{{ ingatlan[1] }}" target="_blank">{{  ingatlan[1]  }}</a> </td></tr> 
-        {% endfor %}
-        </table>  
-               
-
+  
 
 
         <h2>ingatlannet.hu</h2>

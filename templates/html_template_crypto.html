@@ -11,12 +11,13 @@
         <div class="container" style="padding:35px 35px 35px 35px ">
         <center>
         
+        <!--    
         <img src="static/bitcoin.png" width="50" height="50">
         
         
         
         <h1>{{ query_in }}</h1>
-        
+        -->
         <h2>Crypto</h2>
         </center>
         
@@ -26,11 +27,10 @@
         <th scope="col" >Image</th>
         
         <th scope="col">Ticker</th>
-        <th scope="col">Price</th>
-        <th scope="col">Coin</th>
-        
-        <th scope="col">Balance</th>
-        <th scope="col">USD</th>
+        <th scope="col">Start Price [t-24h]</th>
+        <th scope="col">Actual Price</th>
+        <th scope="col">Price change</th>
+        <th scope="col">Price change percent [%]</th>
         
         
         
@@ -51,6 +51,9 @@
         <td class="text-right">{{ lines[4] }}</td>
         <td class="text-right">{{ lines[5] }}</td>
         
+      
+        
+        
         
         </tr> 
         {% endfor %}
@@ -58,8 +61,10 @@
         <br>
         <br>
         <!-- replace x.x.x with actual version -->
-<script src="https://unpkg.com/@codersrank/summary@0.9.11/codersrank-summary.min.js"></script>
+        <!--
+        <script src="https://unpkg.com/@codersrank/summary@0.9.11/codersrank-summary.min.js"></script>
         <codersrank-summary username="sipocz"></codersrank-summary>
+        -->    
         </div>
         </body>
 </html>   
