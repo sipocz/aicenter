@@ -9,7 +9,7 @@
   "routes": [
       {
           "src": "(.*)",
-          "dest": "aicenter.py"
+          "dest": "server.py"
       }
   ]
 }
