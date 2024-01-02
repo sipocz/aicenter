@@ -413,7 +413,7 @@ def getarxiv(query="python"):
 
 
 def getcrypto(ticker=""):
-   tickers=["btc-usdt","eth-usdt","dnx-usdt","erg-usdt","xmr-usdt","rvn-btc"] 
+   tickers=["btc-usdt","eth-usdt","dnx-usdt","erg-usdt","xmr-usdt","rvn-btc","uni-btc","ada-btc","ird-btc"] 
 
    outstr=render_template("html_template_crypto.html",
                                  query_in=tickers,
