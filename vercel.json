@@ -2,8 +2,8 @@
   "version": 2,
   "builds": [
       {
-          "src": "*.py",
-          "use": "@liudonghua123/now-flask"
+          "src": "server.py",
+          "use": "@vercel/python"
       }
   ],
   "routes": [
