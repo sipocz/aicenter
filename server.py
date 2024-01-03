@@ -56,6 +56,7 @@ def ansicode(sti):
 
 
 
+
 def ingatlantajolo_querycity(city):
     out=""
     
