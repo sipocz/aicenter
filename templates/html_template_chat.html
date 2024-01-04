@@ -1,0 +1,38 @@
+
+<!doctype html>
+<html lang="eng">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ASR - Arxiv Search Robot</title>
+        <!-- Bootstrap CSS --> 
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="static/css/arxiv.css">
+    </head>
+    <body>
+         
+        <div class="container" style="padding:35px 35px 35px 35px ">
+        <h1>{{ query_in }}</h1>
+        <h2>arxiv.org</h2>
+        
+        <table class="table table-striped table-bordered table-sm">
+        <thead>
+        
+        <th scope="col">Date</th>
+        <th scope="col">Title</th>
+        <th scope="col">Internet URL</th>
+        
+        </thead>
+
+
+        {% for lines in arxiv_in: %}
+        <tr><td>{{ lines[0] }}</td><td>{{ lines[1] }}</td><td><a href="{{ lines[2] }}" target="_blank">{{  lines[1]  }}</a> </td></tr> 
+        {% endfor %}
+        </table>
+        
+        
+        </div>
+    </body>
+</html>   
+
