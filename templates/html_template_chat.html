@@ -13,21 +13,19 @@
     <body>
          
         <div class="container" style="padding:35px 35px 35px 35px ">
-        <h1>{{ query_in }}</h1>
-        <h2>arxiv.org</h2>
+        
         
         <table class="table table-striped table-bordered table-sm">
         <thead>
         
         <th scope="col">Date</th>
-        <th scope="col">Title</th>
-        <th scope="col">Internet URL</th>
+        <th scope="col">Text</th>
         
         </thead>
 
 
-        {% for lines in arxiv_in: %}
-        <tr><td>{{ lines[0] }}</td><td>{{ lines[1] }}</td><td><a href="{{ lines[2] }}" target="_blank">{{  lines[1]  }}</a> </td></tr> 
+        {% for lines in chat_in: %}
+        <tr><td>{{ lines[0] }}</td><td>{{ lines[1] }}</td></tr> 
         {% endfor %}
         </table>
         

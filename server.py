@@ -488,6 +488,42 @@ def crypto_price():
       
     return outstr
 
+# *** CHAT ***
+
+def rg_topic():
+    
+
+   
+   
+    header={'User-Agent':"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36"}
+
+    url="https://forum.portfolio.hu/topics/richter-topik/6389"
+    res=requests.get(url,headers=header)
+    #print (res.text)
+    soup=BeautifulSoup(res.text,"html.parser")
+    datelist=soup.find_all("span", class_="date" )
+    textlist=soup.find_all("div", class_="text")
+    out=[]
+    for i in range(len(datelist)):
+        out.append((datelist[i].text,textlist[i].text.replace("\n","").replace("\xa0"," ")))
+    
+
+
+
+    print("----------------  END  ------------------------")
+    return(out)
+
+
+@app.route('/chat')
+def topic_chat():
+    outstr=""
+    
+    outstr=render_template("html_template_chat.html",
+                                 chat_in=rg_topic()
+                                 )
+    
+      
+    return outstr
 
 
 
@@ -505,5 +541,5 @@ def login():
 
 
 if __name__ == '__main__':
-   porto = int(os.environ.get("PORT", 5000))
+   porto = int(os.environ.get("PORT", 5001))
    app.run(host="0.0.0.0", port=porto)
